@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chalmie.novelsharing.LibraryActivity">
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:id="@+id/addBookEditText"
+        android:hint="Enter Title"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add To Library"
+        android:id="@+id/addBookButton"
+        android:background="@drawable/button_tertiary"
+        android:textColor="@drawable/button_tertiary_color"
+        android:layout_below="@+id/addBookEditText"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
