@@ -22,7 +22,6 @@ import android.widget.Toast;
 import com.chalmie.novelsharing.R;
 import com.chalmie.novelsharing.models.Book;
 import com.chalmie.novelsharing.util.Constants;
-import com.firebase.client.Firebase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -39,8 +38,7 @@ import butterknife.ButterKnife;
 /**
  * Created by chalmie on 8/3/16.
  */
-public class BookDetailFragment extends Fragment {
-//    implements View.OnClickListener {
+public class BookDetailFragment extends Fragment implements View.OnClickListener {
     @Bind(R.id.bookImageView)
     ImageView mImageLabel;
     @Bind(R.id.authorTextView)
@@ -91,7 +89,7 @@ public class BookDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_book_detail, container, false);
         ButterKnife.bind(this, view);
 //        mSaveBookButton.setOnClickListener(this);
-//        mPreviewButton.setOnClickListener(this);
+        mPreviewButton.setOnClickListener(this);
 
         final String imageUrl = mBook.getImage();
 
@@ -112,9 +110,9 @@ public class BookDetailFragment extends Fragment {
         return view;
     }
 
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
 //            case R.id.saveBookButton:
 ////                String userUid = mSharedPreferences.getString(Constants.KEY_UID, null);
 //                Firebase userBooksFirebaseRef = new Firebase(Constants.FIREBASE_URL_BOOKS).child(userUid);
@@ -127,13 +125,13 @@ public class BookDetailFragment extends Fragment {
 //                pushRef.setValue(mBook);
 //                Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
 //                break;
-//            case R.id.previewButton:
-//                String link = mBook.getPreviewLink();
-//                Log.d(TAG, link);
-//                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
-//                startActivity(webIntent);
-//            default:
-//                break;
-//        }
-//    }
+            case R.id.previewButton:
+                String link = mBook.getPreviewLink();
+                Log.d(TAG, link);
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                startActivity(webIntent);
+            default:
+                break;
+        }
+    }
 }

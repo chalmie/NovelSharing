@@ -22,14 +22,20 @@
         <activity android:name=".ui.UserBookListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"></meta-data>
+                android:value=".ui.MainActivity" />
         </activity>
         <activity android:name=".ui.SearchBookListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.UserBookListActivity"></meta-data>
+                android:value=".ui.UserBookListActivity" />
         </activity>
-        <activity android:name=".ui.SearchBookDetailActivity"></activity>
+        <activity android:name=".ui.SearchBookDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.UserBookListActivity" />
+        </activity>
+        <activity android:name=".ui.CreateAccountActivity" />
+        <activity android:name=".ui.LoginActivity"></activity>
     </application>
 
 </manifest>
