@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chalmie.novelsharing">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,18 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LibraryActivity">
+        <activity android:name=".ui.UserBookListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chalmie.novelsharing.MainActivity">
-            </meta-data>
+                android:value=".ui.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".AddBookActivity">
+        <activity android:name=".ui.SearchBookListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.chalmie.novelsharing.LibraryActivity">
-            </meta-data>
+                android:value=".ui.UserBookListActivity"></meta-data>
         </activity>
+        <activity android:name=".ui.SearchBookDetailActivity"></activity>
     </application>
 
 </manifest>
