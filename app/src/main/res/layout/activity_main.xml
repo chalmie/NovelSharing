@@ -5,19 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome user"
-        android:id="@+id/welcomeTextView"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#ccc"
-        android:textStyle="bold"
-        android:padding="8dp"/>
+
 
     <Button
         android:layout_width="match_parent"
