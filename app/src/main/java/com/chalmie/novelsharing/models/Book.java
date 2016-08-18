@@ -14,7 +14,6 @@ public class Book {
     String author;
     String image;
     String description;
-    double aveRating;
     String previewLink;
     int pageCount;
     String publishedDate;
@@ -24,12 +23,11 @@ public class Book {
 
     public Book() {}
 
-    public Book(String title, String author, String image, String description, double aveRating, String previewLink, int pageCount, String publishedDate, String category) {
+    public Book(String title, String author, String image, String description, String previewLink, int pageCount, String publishedDate, String category) {
         this.title = title;
         this.author = author;
         this.image = image;
         this.description = description;
-        this.aveRating = aveRating;
         this.previewLink = previewLink;
         this.pageCount = pageCount;
         this.publishedDate = publishedDate;
@@ -51,10 +49,6 @@ public class Book {
 
     public String getDescription() {
         return description;
-    }
-
-    public double getAveRating() {
-        return aveRating;
     }
 
     public String getPreviewLink() {

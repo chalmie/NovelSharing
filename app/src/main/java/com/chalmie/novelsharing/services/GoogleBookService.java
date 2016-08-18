@@ -80,7 +80,7 @@ public class GoogleBookService {
                     int pageCount = volumeInfoJSON.optInt("pageCount");
                     String publishedDate = volumeInfoJSON.optString("publishedDate");
 
-                    Book book = new Book(title, author, image, description, aveRating, previewLink, pageCount, publishedDate, category);
+                    Book book = new Book(title, author, image, description, previewLink, pageCount, publishedDate, category);
                     books.add(book);
                 }
             }

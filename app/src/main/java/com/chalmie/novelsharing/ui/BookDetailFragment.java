@@ -22,6 +22,10 @@ import android.widget.Toast;
 import com.chalmie.novelsharing.R;
 import com.chalmie.novelsharing.models.Book;
 import com.chalmie.novelsharing.util.Constants;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -88,7 +92,7 @@ public class BookDetailFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_detail, container, false);
         ButterKnife.bind(this, view);
-//        mSaveBookButton.setOnClickListener(this);
+        mSaveBookButton.setOnClickListener(this);
         mPreviewButton.setOnClickListener(this);
 
         final String imageUrl = mBook.getImage();
@@ -113,18 +117,22 @@ public class BookDetailFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-//            case R.id.saveBookButton:
-////                String userUid = mSharedPreferences.getString(Constants.KEY_UID, null);
-//                Firebase userBooksFirebaseRef = new Firebase(Constants.FIREBASE_URL_BOOKS).child(userUid);
-//                Firebase pushRef = userBooksFirebaseRef.push();
-//                String bookPushId = pushRef.getKey();
-//                mBook.setPushId(bookPushId);
-//                String bookId = Constants.KEY_BOOKID;
-//                bookId = pushRef.getKey();
-//                mBook.setPushId(bookId);
-//                pushRef.setValue(mBook);
-//                Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-//                break;
+            case R.id.saveBookButton:
+              FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+                Log.d("uid",uid);
+                DatabaseReference bookRef = FirebaseDatabase
+                        .getInstance()
+                        .getReference(Constants.FIREBASE_LOCATION_BOOKS)
+                        .child(uid);
+
+                DatabaseReference pushRef = bookRef.push();
+                String pushId = pushRef.getKey();
+                mBook.setPushId(pushId);
+                pushRef.setValue(mBook);
+
+                Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.previewButton:
                 String link = mBook.getPreviewLink();
                 Log.d(TAG, link);
