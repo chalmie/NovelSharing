@@ -41,3 +41,4 @@ public class BookListAdapter extends RecyclerView.Adapter<BookViewHolder>  {
     }
 
 }
+
